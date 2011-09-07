@@ -1,5 +1,7 @@
 # General variables
 $computer = get-content env:computername
+$cw = "C:\Dev\Sites\CorporationWiki\src"
+$scripts = "C:\Users\Justin\Documents\WindowsPowerShell"
 $sites = "C:\Dev\Sites"
 
 # directory variables
@@ -83,10 +85,10 @@ function prompt {
  }
  
 # set common aliases
-find-to-set-alias 'C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE' devenv.exe vs
-find-to-set-alias 'c:\windows\system32\WindowsPowerShell\v1.0\' PowerShell_ISE.exe psise
-find-to-set-alias 'c:\Utils\Notepad2' Notepad2.exe np
-find-to-set-alias 'C:\Utils\Emacs\bin' runemacs.exe emacs
+# find-to-set-alias 'C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE' devenv.exe vs
+# find-to-set-alias 'c:\windows\system32\WindowsPowerShell\v1.0\' PowerShell_ISE.exe psise
+# find-to-set-alias 'c:\Utils\Notepad2' Notepad2.exe np
+# find-to-set-alias 'C:\Utils\Emacs\bin' runemacs.exe emacs
  
 set-alias ai assembly-info
  
@@ -172,6 +174,25 @@ function vsh {
 function gs { git status }
 function ga { git add . }
 function gitk { c:\Utils\Git\bin\gitk }
+
+function gco {
+  git checkout $args
+} 
+
+function gca {
+  git commit -am $args
+}
+
+function gb {
+  git branch $args
+}
+
+function deploy {
+  git checkout -b release
+  git push origin release
+  git checkout dev
+  git branch -d release
+}
 
 function TabExpansion($line, $lastWord) {
   $LineBlocks = [regex]::Split($line, '[|;]')
@@ -264,4 +285,12 @@ function touch {
 
 function view {
   C:\Windows\explorer.exe $args
-} 
+}
+
+function emacs {
+  C:\Utils\Emacs\bin\runemacs.exe $args
+}
+
+function np {
+  c:\Utils\Notepad2\Notepad2.exe $args
+}
