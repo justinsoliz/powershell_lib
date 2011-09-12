@@ -203,7 +203,7 @@ function TabExpansion($line, $lastWord) {
   $lastBlock = $LineBlocks[-1] 
  
   switch -regex ($lastBlock) {
-    '(gb|gco|gm) (.*)' { gitTabExpansion($lastBlock) }
+    '(gb|gco|gm|git push|git pull) (.*)' { gitTabExpansion($lastBlock) }
   }
 }
 
