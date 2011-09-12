@@ -187,6 +187,10 @@ function gb {
   git branch $args
 }
 
+function gm {
+  git merge $args
+}
+
 function deploy {
   git checkout -b release
   git push origin release
@@ -199,7 +203,7 @@ function TabExpansion($line, $lastWord) {
   $lastBlock = $LineBlocks[-1] 
  
   switch -regex ($lastBlock) {
-    'git (.*)' { gitTabExpansion($lastBlock) }
+    '(gb|gco|gm) (.*)' { gitTabExpansion($lastBlock) }
   }
 }
 
@@ -207,13 +211,13 @@ function gitTabExpansion($lastBlock) {
      switch -regex ($lastBlock) {
  
         #Handles git branch -x -y -z <branch name>
-        'git branch -(d|D) (\S*)$' {
+        'gb -(d|D) (\S*)$' {
           gitLocalBranches($matches[2])
         }
  
         #handles git checkout <branch name>
         #handles git merge <brancj name>
-        'git (checkout|merge) (\S*)$' {
+        '(gco|gm) (\S*)$' {
           gitLocalBranches($matches[2])
         }
  
