@@ -1,6 +1,7 @@
 # General variables
 $computer = get-content env:computername
-$cw = "C:\Dev\Sites\CorporationWiki\src"
+$cw = "C:\Dev\Sites\CorporationWiki"
+$shoki = "C:\Dev\Sites\Shoki"
 $scripts = "C:\Users\Justin\Documents\WindowsPowerShell"
 $sites = "C:\Dev\Sites"
 
@@ -173,7 +174,6 @@ function vsh {
 # GIT commands
 function gs { git status }
 function ga { git add . }
-function gitk { c:\Utils\Git\bin\gitk }
 
 function gco {
   git checkout $args
@@ -185,10 +185,6 @@ function gca {
 
 function gb {
   git branch $args
-}
-
-function gm {
-  git merge $args
 }
 
 function deploy {
@@ -297,4 +293,8 @@ function emacs {
 
 function np {
   c:\Utils\Notepad2\Notepad2.exe $args
+}
+
+function build {
+  c:\Windows\Microsoft.Net\Framework\v4.0.30319\MSBuild.exe
 }
