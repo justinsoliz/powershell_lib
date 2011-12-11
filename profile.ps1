@@ -1,9 +1,9 @@
 # General variables
 $computer = get-content env:computername
-$cw = "C:\Dev\Sites\CorporationWiki"
-$shoki = "C:\Dev\Sites\Shoki"
+$cw = "C:\dev\Sites\CorporationWiki"
+$shoki = "C:\dev\Sites\Shoki"
 $scripts = "C:\Users\Justin\Documents\WindowsPowerShell"
-$sites = "C:\Dev\Sites"
+$sites = "C:\dev\Sites"
 
 # directory variables
 
@@ -293,8 +293,4 @@ function emacs {
 
 function np {
   c:\Utils\Notepad2\Notepad2.exe $args
-}
-
-function build {
-  c:\Windows\Microsoft.Net\Framework\v4.0.30319\MSBuild.exe
 }
